@@ -1,0 +1,215 @@
+:root {
+    --cor-fundo: #222020;
+    --cor-card: #2d2a2a;
+    --cor-texto: #f0f0f0;
+    --cor-destaque: #f1af09;
+    --cor-sucesso: #25d366;
+    --cor-falha: #e74c3c;
+    --sombra-destaque: rgba(241, 175, 9, 0.2);
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: 'Poppins', sans-serif; 
+    background-color: var(--cor-fundo); 
+    color: var(--cor-texto); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start; /* Alterado para alinhar ao topo */
+    min-height: 100vh; 
+    padding: 60px 20px; /* Aumentei o padding superior */
+}
+
+.main-header { 
+    text-align: center; 
+    margin-bottom: 50px; 
+}
+
+.main-header h1 { 
+    font-size: 2.5rem; 
+    font-weight: 700; 
+    margin-bottom: 10px; 
+    color: var(--cor-destaque); 
+}
+
+.main-header p { 
+    font-size: 1.1rem; 
+    max-width: 600px; 
+    color: #ccc; 
+}
+
+.pricing-container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: stretch; /* Garante que todos os cards estiquem para a mesma altura */
+    flex-wrap: wrap; 
+    gap: 30px; 
+}
+
+/* === CARD DE PREÇOS: AQUI ESTÃO AS PRINCIPAIS MUDANÇAS === */
+.pricing-card {
+    width: 340px;
+    background-color: var(--cor-card);
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 2px solid transparent; /* Borda inicial transparente */
+    position: relative;
+    
+    /* ANIMAÇÃO DE HOVER APRIMORADA */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+    /* SOLUÇÃO PARA ALINHAMENTO (Flexbox) */
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px) scale(1.02); /* Movimento e zoom sutil */
+    box-shadow: 0 15px 30px var(--sombra-destaque);
+    border-color: var(--cor-destaque); /* Borda dourada aparece no hover */
+}
+
+.plan-title { 
+    font-size: 1.5rem; 
+    font-weight: 500; 
+    margin-bottom: 20px; 
+}
+
+/* SOLUÇÃO PARA ALINHAMENTO (Flexbox) */
+.features-list {
+    list-style: none;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Faz esta lista crescer, empurrando o botão para baixo */
+}
+
+.features-list li { 
+    margin-bottom: 15px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.features-list .fa-check-circle { color: var(--cor-sucesso); }
+.features-list .fa-times-circle { color: var(--cor-falha); }
+
+.cta-button { 
+    background-color: var(--cor-destaque); 
+    color: var(--cor-fundo); 
+    font-weight: 700; 
+    text-decoration: none; 
+    padding: 15px 0; 
+    width: 100%; 
+    border-radius: 8px; 
+    transition: background-color 0.3s ease; 
+    margin-top: auto; /* Garante que o botão fique na parte inferior */
+}
+
+.cta-button:hover { background-color: #fff; }
+
+.pricing-card.popular { 
+    border-color: var(--cor-destaque); /* Mantém a borda no popular */
+    transform: translateY(-20px) scale(1.02); /* Escala levemente maior para destaque */
+}
+
+/* Garante que o card popular não perca sua borda no hover */
+.pricing-card.popular:hover {
+    transform: translateY(-25px) scale(1.04); /* Efeito de hover um pouco mais acentuado */
+}
+
+.popular-badge { 
+    position: absolute; 
+    top: -18px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--cor-destaque); 
+    color: var(--cor-fundo); 
+    padding: 5px 20px; 
+    border-radius: 20px; 
+    font-size: 0.9rem; 
+    font-weight: 700; 
+}
+
+/* === ANIMAÇÃO DE ENTRADA (Fade-in) === */
+.fade-in-section { 
+    opacity: 0; 
+    transform: translateY(30px); 
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+}
+.fade-in-section.visible { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+/* === BÔNUS HEADER === */
+.bonus-text {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--cor-destaque);
+    background-color: rgba(241, 175, 9, 0.1);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(241, 175, 9, 0.2);
+    display: inline-block;
+}
+.bonus-text i { margin-right: 10px; }
+
+
+/* === CONFIGURAÇÃO DE RESPONSIVIDADE === */
+@media (max-width: 1150px) {
+    .pricing-container {
+        max-width: 800px; /* Limita a largura antes de quebrar */
+    }
+}
+
+@media (max-width: 768px) { 
+    body { padding: 40px 20px; }
+    .pricing-container { 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 40px; /* Aumenta o espaçamento quando empilhado */
+    } 
+    .pricing-card { 
+        width: 100%; 
+        max-width: 400px; 
+    } 
+    .pricing-card.popular, .pricing-card.popular:hover { 
+        transform: scale(1.02); /* Remove o deslocamento Y e mantém só o zoom */
+    } 
+}
+
+/* Adicione este novo estilo para o preço oculto */
+.plan-price-hidden {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* Para compatibilidade com Safari */
+    border: 1px solid rgba(241, 175, 9, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    color: var(--cor-destaque);
+    text-align: center;
+    width: 100%;
+}
+
+.plan-price-hidden p {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    color: var(--white);
+}
+
+.plan-price-hidden span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--cor-destaque);
+}

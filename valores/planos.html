@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossos Planos - Alfega</title>
+    <link rel="stylesheet" href="planos_style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header fade-in-section">
+        <h1>Nossos Planos</h1>
+        <p>Acreditamos em soluções flexíveis. Escolha o plano que melhor se encaixa nas suas metas e vamos combinar o valor ideal para o seu projeto via WhatsApp.</p>
+        
+        <p class="bonus-text">
+            <i class="fas fa-gift"></i> Em todos os planos, configuramos sua conta do Facebook Business gratuitamente!
+        </p>
+    </header>
+
+    <main class="pricing-container">
+
+        <div class="pricing-card fade-in-section">
+            <h2 class="plan-title">Plano 1</h2>
+            <div class="plan-price-hidden">
+                <p>Valor a Combinar</p>
+                <span>Consulte via WhatsApp</span>
+            </div>
+            <ul class="features-list">
+                <li><i class="fas fa-check-circle"></i> Planejamento estratégico de mídia</li>
+                <li><i class="fas fa-check-circle"></i> Criação de campanhas (Facebook/Instagram)</li>
+                <li><i class="fas fa-check-circle"></i> Otimizações semanais</li>
+                <li><i class="fas fa-check-circle"></i> Relatórios mensais</li>
+            </ul>
+            <a href="https://wa.me/553798040489?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%201,%20poder%C3%ADamos%20conversar%20sobre%20valores%3F" target="_blank" class="cta-button">Combinar Valor</a>
+        </div>
+
+        <div class="pricing-card popular fade-in-section">
+            <div class="popular-badge">Mais Popular</div>
+            <h2 class="plan-title">Plano 2</h2>
+             <div class="plan-price-hidden">
+                <p>Valor a Combinar</p>
+                <span>Consulte via WhatsApp</span>
+            </div>
+            <ul class="features-list">
+                <li><i class="fas fa-check-circle"></i> <strong>Tudo do Plano 1</strong></li>
+                <li><i class="fas fa-check-circle"></i> 3 a 5 criativos mensais</li>
+                <li><i class="fas fa-check-circle"></i> Copywriting para anúncios</li>
+                <li><i class="fas fa-check-circle"></i> Teste A/B de criativos</li>
+            </ul>
+             <a href="https://wa.me/553798040489?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%202,%20poder%C3%ADamos%20conversar%20sobre%20valores%3F" target="_blank" class="cta-button">Combinar Valor</a>
+        </div>
+
+        <div class="pricing-card fade-in-section">
+            <h2 class="plan-title">Plano 3</h2>
+             <div class="plan-price-hidden">
+                <p>Valor a Combinar</p>
+                <span>Consulte via WhatsApp</span>
+            </div>
+            <ul class="features-list">
+                <li><i class="fas fa-check-circle"></i> <strong>Tudo do Plano 2</strong></li>
+                <li><i class="fas fa-check-circle"></i> Gestão de perfil (Instagram ou Facebook)</li>
+                <li><i class="fas fa-check-circle"></i> 2 publicações semanais (feed ou reels)</li>
+                <li><i class="fas fa-check-circle"></i> Legendas e estratégias de engajamento</li>
+                <li><i class="fas fa-check-circle"></i> Monitoramento básico de interações</li>
+            </ul>
+             <a href="https://wa.me/553798040489?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%203,%20poder%C3%ADamos%20conversar%20sobre%20valores%3F" target="_blank" class="cta-button">Combinar Valor</a>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in-section');
+            const checkVisibility = () => {
+                const triggerBottom = window.innerHeight * 0.9;
+                fadeElements.forEach(element => {
+                    if (element.getBoundingClientRect().top < triggerBottom) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            window.addEventListener('scroll', checkVisibility);
+            checkVisibility();
+        });
+    </script>
+</body>
+</html>

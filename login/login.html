@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo à ALFEGA</title>
+    <link rel="stylesheet" href="login_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="page-container">
+        <main class="container">
+            <div class="forms-container">
+                <div class="logo">
+                    <img src="logo.png" alt="ALFEGA Logo">
+                </div>
+
+                <div class="form-wrapper active">
+                    <div class="form login-form active">
+                        <h2 class="form-title">Acesse Nossos Planos</h2>
+                        <p class="welcome-text">Conheça as soluções que vão transformar a gestão do seu negócio.</p>
+                        
+                        <a href="../valores/planos.html" class="btn primary-btn">Ver Planos</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="welcome-panel">
+                <div class="welcome-header">
+                    <h1>Bem-vindo à <span>ALFEGA</span></h1>
+                    <p>Da Estratégia ao Sucesso, Do Começo ao Fim.</p>
+                    <div class="gold-line"></div>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Nosso Espaço Físico</h3>
+                    <p class="address">
+                        Rua Vicente Dias Barbosa, nº 543<br>
+                        Centro, Carmo do Cajuru - MG
+                    </p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Rua+Vicente+dias+barbosa,+543,+carmo+do+cajuru,+MG" target="_blank" class="btn-mapa small">
+                        <i class="fas fa-route"></i> Ver no Mapa
+                    </a>
+                </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            particlesJS('particles-js', {
+                "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#D4AF37" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": true }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#D4AF37", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 2, "direction": "none", "out_mode": "out" } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } } }, "retina_detect": true
+            });
+        });
+    </script>
+</body>
+</html>

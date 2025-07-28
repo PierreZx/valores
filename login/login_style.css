@@ -1,0 +1,121 @@
+/* Copiado do seu arquivo style.css original e com uma pequena adição */
+/* Adicione estas novas regras no início do CSS */
+html {
+    height: 100%;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main.container {
+    flex-grow: 1; /* Faz a seção principal crescer e ocupar o espaço */
+}
+
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --gold: #D4AF37;
+    --dark-gold: #b59530;
+    --gray: #f0f0f0;
+    --dark-gray: #333333;
+    --medium-gray: #2c2c2c;
+    --light-gray: #f5f5f5;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+body { background-color: var(--black); color: var(--white); overflow: hidden; height: 100vh; }
+#particles-js { position: absolute; width: 100%; height: 100%; background-color: var(--black); z-index: 1; }
+.container { display: flex; height: 100vh; position: relative; z-index: 2; }
+.forms-container { width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; }
+.logo img { max-width: 150px; height: auto; margin-bottom: 2rem; }
+.form-wrapper { position: relative; width: 100%; max-width: 400px; display: flex; align-items: center; }
+.form-wrapper.active { display: flex; }
+.form { width: 100%; padding: 2rem; background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); transition: opacity 0.5s ease; opacity: 0; }
+.form.active { opacity: 1; position: relative; }
+.form-title { color: var(--gold); margin-bottom: 1.5rem; text-align: center; font-weight: 600; }
+/* Adição para o texto de boas-vindas */
+.welcome-text { text-align: center; margin-bottom: 2rem; line-height: 1.6; color: var(--light-gray); }
+.btn { width: 100%; padding: 12px; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; }
+.primary-btn { background-color: var(--gold); color: var(--black); }
+.primary-btn:hover { background-color: var(--dark-gold); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3); }
+.welcome-panel { width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%); }
+.welcome-panel h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; text-align: center; }
+.welcome-panel h1 span { color: var(--gold); }
+.welcome-panel p { font-size: 1.2rem; opacity: 0.8; margin-bottom: 2rem; text-align: center; }
+.gold-line { width: 100px; height: 4px; background-color: var(--gold); margin: 1rem 0; }
+@media (max-width: 992px) { .container { flex-direction: column; overflow-y: auto; overflow-x: hidden; } .forms-container, .welcome-panel { width: 100%; min-height: auto; } .welcome-panel { padding: 4rem 1rem 2rem 1rem; order: -1; } .welcome-panel h1 { font-size: 2rem; } .welcome-panel p { font-size: 1rem; } .forms-container { padding: 1rem; } }
+
+/* COLE ESTE CÓDIGO NO FINAL DO ARQUIVO login_style.css */
+
+/* === INFORMAÇÕES DE CONTATO NO WELCOME PANEL === */
+.welcome-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    text-align: center;
+}
+
+.welcome-header {
+    margin-bottom: 2rem;
+}
+
+/* Ajustes no título para dar espaço ao novo conteúdo */
+.welcome-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-header p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Estilos para a nova seção de contato */
+.contact-info {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.2); /* Linha divisória sutil */
+    width: 80%;
+}
+
+.contact-info h3 {
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+}
+
+.contact-info .address {
+    font-size: 0.95rem;
+    color: var(--light-gray);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+/* Botão do mapa em tamanho menor */
+.btn-mapa.small {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+    background-color: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+}
+
+.btn-mapa.small:hover {
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 992px) {
+    .welcome-panel {
+        padding-top: 4rem; /* Garante espaço no topo em mobile */
+        padding-bottom: 4rem;
+    }
+
+    .welcome-header h1 {
+        font-size: 2rem;
+    }
+}
