@@ -45,7 +45,41 @@ body { background-color: var(--black); color: var(--white); overflow: hidden; he
 .welcome-panel h1 span { color: var(--gold); }
 .welcome-panel p { font-size: 1.2rem; opacity: 0.8; margin-bottom: 2rem; text-align: center; }
 .gold-line { width: 100px; height: 4px; background-color: var(--gold); margin: 1rem 0; }
-@media (max-width: 992px) { .container { flex-direction: column; overflow-y: auto; overflow-x: hidden; } .forms-container, .welcome-panel { width: 100%; min-height: auto; } .welcome-panel { padding: 4rem 1rem 2rem 1rem; order: -1; } .welcome-panel h1 { font-size: 2rem; } .welcome-panel p { font-size: 1rem; } .forms-container { padding: 1rem; } }
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .forms-container, .welcome-panel {
+        width: 100%;
+        min-height: auto;
+    }
+
+    /* Ajuste para o painel de boas-vindas */
+    .welcome-panel {
+        padding: 4rem 1rem 2rem 1rem;
+        order: -1; /* Coloca o painel no topo */
+    }
+
+    .welcome-header h1 {
+        font-size: 2rem;
+    }
+
+    .welcome-header p {
+        font-size: 1rem;
+    }
+
+    /* === AQUI ESTÁ A CORREÇÃO === */
+    .forms-container {
+        padding: 1rem;
+        padding-bottom: 80px; /* Adiciona um espaço seguro na parte inferior */
+        display: flex;
+        align-items: center; /* Centraliza o card de login */
+        justify-content: center;
+    }
+}
 
 /* COLE ESTE CÓDIGO NO FINAL DO ARQUIVO login_style.css */
 
