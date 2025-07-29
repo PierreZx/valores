@@ -1,19 +1,6 @@
-/* Copiado do seu arquivo style.css original e com uma pequena adição */
-/* Adicione estas novas regras no início do CSS */
-html {
-    height: 100%;
-}
+/* VERSÃO FINAL E CORRIGIDA - login_style.css */
 
-.page-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-main.container {
-    flex-grow: 1; /* Faz a seção principal crescer e ocupar o espaço */
-}
-
+/* 1. VARIÁVEIS DE COR E CONFIGURAÇÕES GLOBAIS */
 :root {
     --black: #000000;
     --white: #ffffff;
@@ -24,93 +11,142 @@ main.container {
     --medium-gray: #2c2c2c;
     --light-gray: #f5f5f5;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-body { background-color: var(--black); color: var(--white); overflow: hidden; height: 100vh; }
-#particles-js { position: absolute; width: 100%; height: 100%; background-color: var(--black); z-index: 1; }
-.container { display: flex; height: 100vh; position: relative; z-index: 2; }
-.forms-container { width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; }
-.logo img { max-width: 150px; height: auto; margin-bottom: 2rem; }
-.form-wrapper { position: relative; width: 100%; max-width: 400px; display: flex; align-items: center; }
-.form-wrapper.active { display: flex; }
-.form { width: 100%; padding: 2rem; background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); transition: opacity 0.5s ease; opacity: 0; }
-.form.active { opacity: 1; position: relative; }
-.form-title { color: var(--gold); margin-bottom: 1.5rem; text-align: center; font-weight: 600; }
-/* Adição para o texto de boas-vindas */
-.welcome-text { text-align: center; margin-bottom: 2rem; line-height: 1.6; color: var(--light-gray); }
-.btn { width: 100%; padding: 12px; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; }
-.primary-btn { background-color: var(--gold); color: var(--black); }
-.primary-btn:hover { background-color: var(--dark-gold); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3); }
-.welcome-panel { width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%); }
-.welcome-panel h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; text-align: center; }
-.welcome-panel h1 span { color: var(--gold); }
-.welcome-panel p { font-size: 1.2rem; opacity: 0.8; margin-bottom: 2rem; text-align: center; }
-.gold-line { width: 100px; height: 4px; background-color: var(--gold); margin: 1rem 0; }
-@media (max-width: 992px) {
-    .container {
-        flex-direction: column;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
 
-    .forms-container, .welcome-panel {
-        width: 100%;
-        min-height: auto;
-    }
-
-    /* Ajuste para o painel de boas-vindas */
-    .welcome-panel {
-        padding: 4rem 1rem 2rem 1rem;
-        order: -1; /* Coloca o painel no topo */
-    }
-
-    .welcome-header h1 {
-        font-size: 2rem;
-    }
-
-    .welcome-header p {
-        font-size: 1rem;
-    }
-
-    /* === AQUI ESTÁ A CORREÇÃO === */
-    .forms-container {
-        padding: 1rem;
-        padding-bottom: 80px; /* Adiciona um espaço seguro na parte inferior */
-        display: flex;
-        align-items: center; /* Centraliza o card de login */
-        justify-content: center;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* COLE ESTE CÓDIGO NO FINAL DO ARQUIVO login_style.css */
+body {
+    background-color: var(--black);
+    color: var(--white);
+    /* Correção de altura para mobile e desktop */
+    height: 100vh; /* Altura padrão para desktop */
+    height: 100dvh; /* Altura dinâmica para celulares */
+    overflow: hidden; /* Garante que não haja rolagem */
+}
 
-/* === INFORMAÇÕES DE CONTATO NO WELCOME PANEL === */
-.welcome-panel {
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black);
+    z-index: 1;
+}
+
+/* 2. LAYOUT PRINCIPAL (DESKTOP) */
+.container {
+    display: flex;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.forms-container {
+    width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.welcome-panel {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
     text-align: center;
 }
 
-.welcome-header {
+/* 3. CONTEÚDO DO PAINEL ESQUERDO (FORMULÁRIO) */
+.logo img {
+    max-width: 150px;
     margin-bottom: 2rem;
 }
 
-/* Ajustes no título para dar espaço ao novo conteúdo */
-.welcome-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+.form-wrapper {
+    width: 100%;
+    max-width: 400px;
 }
 
-.welcome-header p {
-    font-size: 1.1rem;
+.form {
+    width: 100%;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-title {
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.welcome-text {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: var(--light-gray);
+}
+
+.btn.primary-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--gold);
+    color: var(--black);
+    text-decoration: none;
+    display: inline-block; /* Alterado para se comportar como botão */
+    transition: all 0.3s ease;
+}
+
+.btn.primary-btn:hover {
+    background-color: var(--dark-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+
+/* 4. CONTEÚDO DO PAINEL DIREITO (BOAS-VINDAS E ENDEREÇO) */
+.welcome-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
     margin-bottom: 1rem;
 }
 
-/* Estilos para a nova seção de contato */
+.welcome-header h1 span {
+    color: var(--gold);
+}
+
+.welcome-header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+.gold-line {
+    width: 100px;
+    height: 4px;
+    background-color: var(--gold);
+    margin: 1rem auto;
+}
+
 .contact-info {
-    margin-top: 2rem;
+    margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(212, 175, 55, 0.2); /* Linha divisória sutil */
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
     width: 80%;
 }
 
@@ -128,13 +164,19 @@ body { background-color: var(--black); color: var(--white); overflow: hidden; he
     margin-bottom: 1.5rem;
 }
 
-/* Botão do mapa em tamanho menor */
 .btn-mapa.small {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
     padding: 10px 22px;
     font-size: 0.9rem;
     background-color: transparent;
     border: 1px solid var(--gold);
     color: var(--gold);
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .btn-mapa.small:hover {
@@ -142,14 +184,60 @@ body { background-color: var(--black); color: var(--white); overflow: hidden; he
     color: var(--black);
 }
 
-/* Ajustes para telas menores */
+
+/* 5. RESPONSIVIDADE (MOBILE) */
 @media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .welcome-panel,
+    .forms-container {
+        width: 100%;
+        flex-shrink: 0;
+        padding: 1rem;
+    }
+
+    /* Painel do topo (Boas-vindas) */
     .welcome-panel {
-        padding-top: 4rem; /* Garante espaço no topo em mobile */
-        padding-bottom: 4rem;
+        order: -1;
+        flex-basis: 50%; /* Ocupa 50% da altura */
+        justify-content: flex-end; /* Alinha conteúdo na parte de baixo */
+        padding-bottom: 2rem;
+    }
+    
+    /* Painel de baixo (Formulário) */
+    .forms-container {
+        flex-basis: 50%; /* Ocupa 50% da altura */
+        justify-content: flex-start; /* Alinha conteúdo na parte de cima */
+        padding-top: 2rem;
+    }
+
+    /* Compactando o conteúdo para caber na tela */
+    .logo img {
+        max-width: 100px;
+        margin-bottom: 1rem;
+    }
+
+    .form {
+        padding: 1.5rem;
     }
 
     .welcome-header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .welcome-header p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .gold-line {
+        margin: 0.5rem auto;
+    }
+    
+    .contact-info {
+        display: none; /* Opcional: Esconde o endereço em telas muito pequenas para focar no CTA */
     }
 }
