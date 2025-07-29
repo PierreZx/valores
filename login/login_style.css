@@ -236,7 +236,4 @@ body {
         margin-bottom: 1rem;
     }
     
-    .contact-info {
-        display: none; /* Esconde o endereço em telas pequenas para focar no CTA */
-    }
 }
