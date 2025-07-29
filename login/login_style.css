@@ -1,4 +1,4 @@
-/* VERSÃO FINAL E CORRIGIDA - login_style.css */
+/* VERSÃO DEFINITIVA E CORRIGIDA - login_style.css */
 
 /* 1. VARIÁVEIS DE COR E CONFIGURAÇÕES GLOBAIS */
 :root {
@@ -6,9 +6,6 @@
     --white: #ffffff;
     --gold: #D4AF37;
     --dark-gold: #b59530;
-    --gray: #f0f0f0;
-    --dark-gray: #333333;
-    --medium-gray: #2c2c2c;
     --light-gray: #f5f5f5;
 }
 
@@ -29,14 +26,13 @@ body {
 }
 
 #particles-js {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
-    background-color: var(--black);
     z-index: 1;
 }
 
-/* 2. LAYOUT PRINCIPAL (DESKTOP) */
+/* 2. LAYOUT PRINCIPAL */
 .container {
     display: flex;
     height: 100%;
@@ -44,7 +40,8 @@ body {
     z-index: 2;
 }
 
-.forms-container {
+.forms-container,
+.welcome-panel {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -54,15 +51,10 @@ body {
 }
 
 .welcome-panel {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
     text-align: center;
 }
+
 
 /* 3. CONTEÚDO DO PAINEL ESQUERDO (FORMULÁRIO) */
 .logo img {
@@ -83,18 +75,21 @@ body {
     border-radius: 15px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
 }
 
 .form-title {
     color: var(--gold);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-weight: 600;
+    font-size: 1.5rem;
 }
 
 .welcome-text {
     margin-bottom: 2rem;
     line-height: 1.6;
     color: var(--light-gray);
+    font-size: 0.9rem;
 }
 
 .btn.primary-btn {
@@ -102,24 +97,27 @@ body {
     padding: 12px;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     background-color: var(--gold);
     color: var(--black);
     text-decoration: none;
-    display: inline-block; /* Alterado para se comportar como botão */
+    display: inline-block;
     transition: all 0.3s ease;
 }
 
 .btn.primary-btn:hover {
     background-color: var(--dark-gold);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
 
 /* 4. CONTEÚDO DO PAINEL DIREITO (BOAS-VINDAS E ENDEREÇO) */
+.welcome-content {
+    max-width: 450px;
+}
+
 .welcome-header h1 {
     font-size: 3rem;
     font-weight: 700;
@@ -147,7 +145,6 @@ body {
     margin-top: 3rem;
     padding-top: 2rem;
     border-top: 1px solid rgba(212, 175, 55, 0.2);
-    width: 80%;
 }
 
 .contact-info h3 {
@@ -194,33 +191,39 @@ body {
     .welcome-panel,
     .forms-container {
         width: 100%;
-        flex-shrink: 0;
+        flex-basis: 50%;
         padding: 1rem;
-    }
-
-    /* Painel do topo (Boas-vindas) */
-    .welcome-panel {
-        order: -1;
-        flex-basis: 50%; /* Ocupa 50% da altura */
-        justify-content: flex-end; /* Alinha conteúdo na parte de baixo */
-        padding-bottom: 2rem;
+        overflow: hidden;
     }
     
-    /* Painel de baixo (Formulário) */
     .forms-container {
-        flex-basis: 50%; /* Ocupa 50% da altura */
-        justify-content: flex-start; /* Alinha conteúdo na parte de cima */
         padding-top: 2rem;
+        justify-content: flex-start;
+    }
+    
+    .welcome-panel {
+        order: -1;
+        justify-content: flex-end;
+        padding-bottom: 1.5rem;
     }
 
     /* Compactando o conteúdo para caber na tela */
     .logo img {
-        max-width: 100px;
+        max-width: 80px;
         margin-bottom: 1rem;
     }
 
     .form {
-        padding: 1.5rem;
+        padding: 1.2rem;
+    }
+
+    .welcome-text {
+        font-size: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn.primary-btn {
+        font-size: 0.9rem;
     }
 
     .welcome-header h1 {
@@ -232,12 +235,8 @@ body {
         font-size: 0.9rem;
         margin-bottom: 1rem;
     }
-
-    .gold-line {
-        margin: 0.5rem auto;
-    }
     
     .contact-info {
-        display: none; /* Opcional: Esconde o endereço em telas muito pequenas para focar no CTA */
+        display: none; /* Esconde o endereço em telas pequenas para focar no CTA */
     }
 }
